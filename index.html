@@ -515,11 +515,11 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 36px 40px;
+      padding: 32px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 28px;
       position: relative;
       overflow: hidden;
       text-decoration: none;
@@ -545,6 +545,67 @@
     }
 
     .rsvp-card:hover::before { opacity: 1; }
+    .wax-seal-wrap {
+      flex-shrink: 0;
+    }
+
+    .wax-seal {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #c0392b, #7b1a0e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow:
+        0 4px 16px rgba(192,57,43,0.4),
+        inset 0 2px 4px rgba(255,255,255,0.1),
+        inset 0 -2px 4px rgba(0,0,0,0.3);
+      transition: all 0.35s ease;
+      /* Wax drip effect using clip-path */
+      clip-path: polygon(
+        50% 0%, 63% 4%, 74% 12%, 82% 24%,
+        87% 37%, 86% 51%, 80% 63%, 70% 73%,
+        57% 79%, 43% 79%, 30% 73%, 20% 63%,
+        14% 51%, 13% 37%, 18% 24%, 26% 12%,
+        37% 4%
+      );
+    }
+
+    .rsvp-card:hover .wax-seal {
+      box-shadow:
+        0 8px 28px rgba(192,57,43,0.55),
+        inset 0 2px 4px rgba(255,255,255,0.15),
+        inset 0 -2px 4px rgba(0,0,0,0.3);
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .wax-seal-monogram {
+      font-family: 'Playfair Display', 'Georgia', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.05em;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      user-select: none;
+    }
+
+    .rsvp-card-text {
+      flex: 1;
+    }
+
+    .rsvp-arrow {
+      font-size: 1.3rem;
+      color: rgba(197,160,89,0.5);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .rsvp-card:hover .rsvp-arrow {
+      color: rgba(197,160,89,0.9);
+      transform: translateX(4px);
+    }
 
     /* Gold glow orb inside RSVP card */
     .rsvp-glow {
@@ -792,21 +853,30 @@
 
     </div>
 
-    <!-- ── Wedding RSVP ── -->
+    <!-- ── Wedding RSVP — Wax Seal Style ── -->
     <div class="rsvp-section">
       <p class="section-label">Special Feature</p>
+
       <a class="rsvp-card" href="#" target="_blank" rel="noreferrer">
         <!-- ← REPLACE href with your deployed Palazzo RSVP URL -->
         <div class="rsvp-glow"></div>
-        <div class="rsvp-left">
-          <div class="envelope-wrap">💌</div>
-          <div class="rsvp-text-wrap">
-            <p class="rsvp-eyebrow">Wedding Invitation</p>
-            <h3 class="rsvp-title">Chryzller & Sebastian — RSVP</h3>
-            <p class="rsvp-sub">Palazzo Verde · Notre Dame De Vie Chapel, Las Piñas</p>
+
+        <!-- Wax Seal -->
+        <div class="wax-seal-wrap">
+          <div class="wax-seal">
+            <span class="wax-seal-monogram">C&S</span>
           </div>
         </div>
-        <div class="rsvp-date-badge">OCTOBER 24, 2026 →</div>
+
+        <!-- Minimal text -->
+        <div class="rsvp-card-text">
+          <p class="rsvp-eyebrow">You're Invited</p>
+          <h3 class="rsvp-title">Chryzller & Sebastian</h3>
+          <p class="rsvp-sub">October 24, 2026 · Palazzo Verde</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="rsvp-arrow">→</div>
       </a>
     </div>
 
